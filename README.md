@@ -171,7 +171,7 @@ Dependency Injection (DI) is a design pattern where a class receives its depende
 | Inheritance                | Supports single inheritance.                          | Supports multiple inheritance.           |
 | Default Methods            | Can have default methods.                            | Can have default and static methods.     |
 | Fields                     | Can have instance variables.                         | Only allows `public static final` fields.|
-| Use Case                   | Used for common functionality between classes.       | Used for defining contracts.             |
+| Use Case                   | Used for common functionality between classes.      | Used for defining contracts.             |
 
 ---
 
@@ -381,12 +381,29 @@ Indexing speeds up data retrieval operations but may slow down data insertion an
 - Columns that are frequently used in `WHERE`, `JOIN`, and `ORDER BY` clauses.
 - Columns used for foreign key relationships.
 
-## 26. ACID Properties
+## 26. ACID Properties in Databases
 
-- **Atomicity**: All operations within a transaction are completed; if not, the transaction is rolled back.
-- **Consistency**: The database must remain in a valid state before and after the transaction.
-- **Isolation**: Transactions do not affect each other.
-- **Durability**: Changes made by a committed transaction are permanent.
+
+ACID properties are a set of principles that ensure the reliability, consistency, and integrity of a database during transaction processing. The acronym stands for **Atomicity, Consistency, Isolation, and Durability**.
+
+### Atomicity:
+- **Definition**: A transaction is treated as a single, indivisible unit that either completes entirely or does not execute at all.  
+- **Example**: In a bank transfer, if money is debited from one account but fails to credit another, the transaction will be rolled back, leaving both accounts unchanged.
+
+### Consistency
+- **Definition**: A transaction must transition the database from one valid state to another, preserving all predefined rules and constraints.  
+- **Example**: If a database enforces a rule that no account balance can be negative, a transaction attempting to violate this rule will fail.
+
+### Isolation
+- **Definition**: Transactions occurring simultaneously do not interfere with each other. The outcome of a transaction is independent of other concurrently executed transactions.  
+- **Example**: If two users are booking the last seat on a flight at the same time, only one transaction will succeed.
+
+### Durability
+- **Definition**: Once a transaction is committed, the changes are permanent, even in the case of a system crash.  
+- **Example**: After successfully transferring money between accounts, the update remains intact, even if the database crashes immediately afterward.
+
+These properties are fundamental to relational database systems like **MySQL**, **PostgreSQL**, and **Oracle**, and ensure data integrity and reliability in critical applications.
+
 
 ## 27. Normalization
 
