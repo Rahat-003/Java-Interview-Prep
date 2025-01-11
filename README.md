@@ -176,14 +176,12 @@ Dependency Injection (DI) is a design pattern where a class receives its depende
 ---
 
 ## 11. What is Composition? Why Prefer Composition Over Inheritance?
-- **Composition:** A design principle where objects are composed of other objects rather than inheriting from them.
+-   **Composition:** A design principle where objects are composed of other objects rather than inheriting from them.
 
-### Why Prefer Composition?
-1. **Flexibility:** Allows behavior to be changed at runtime by composing different objects.
-2. **Avoids Tight Coupling:** Reduces dependency on a specific class hierarchy.
-3. **Follows Favor Composition Over Inheritance Principle:** Avoids issues like the diamond problem.
-
----
+    ### Why Prefer Composition?
+    1. **Flexibility:** Allows behavior to be changed at runtime by composing different objects.
+    2. **Avoids Tight Coupling:** Reduces dependency on a specific class hierarchy.
+    3. **Follows Favor Composition Over Inheritance Principle:** Avoids issues like the diamond problem.
 
 ## 12. How Does HashMap Work in Java (In Depth)?
 1. **Key-Value Pairs:** Stores data in key-value pairs using a hashing mechanism.
@@ -191,16 +189,76 @@ Dependency Injection (DI) is a design pattern where a class receives its depende
 3. **Collision Resolution:** Uses linked lists or balanced trees for handling collisions.
 4. **Performance:** Time complexity for retrieval is O(1) in the best case and O(n) in the worst case.
 
----
 
 ## 13. Difference Between Session and Cookies
-| **Aspect**       | **Session**                     | **Cookies**                     |
-|------------------|--------------------------------|---------------------------------|
-| Storage          | Server-side                    | Client-side                    |
-| Security         | More secure                   | Less secure                    |
-| Size Limit       | Limited by server resources    | Limited to 4KB                 |
+
+Sessions and cookies are widely used in web development for managing user state and data. They differ in how and where they store information.
+
+
+**Cookies**
+---
+**Definition:** A cookie is a small piece of data stored on the client-side (browser) by the web server.
+
+### **Key Features**
+- Stored in the user's browser.
+- Sent with every HTTP request to the server.
+- Can be used for client-side data storage.
+
+### **Use Cases**
+- Remember user preferences.
+- Store session identifiers.
+- Track user activity (e.g., analytics).
+
+### **Advantages**
+- Persistent across browser sessions (depending on expiration settings).
+- Can be easily shared between server and client.
+
+### **Disadvantages**
+- Limited storage capacity (usually 4KB per cookie).
+- Security concerns (e.g., vulnerable to Cross-Site Scripting (XSS) attacks).
 
 ---
+
+## **Session**
+
+### **Definition**
+A session is server-side storage of user data, typically identified by a unique session ID stored in a cookie.
+
+### **Key Features**
+- Stored on the server.
+- Identified using a session ID.
+- Data is cleared when the session ends (e.g., user logs out or the session times out).
+
+### **Use Cases**
+- Managing user authentication.
+- Storing sensitive information.
+- Temporary storage of user-specific data.
+
+### **Advantages**
+- More secure as data is stored on the server.
+- No size limitations for data storage.
+
+### **Disadvantages**
+- Requires server resources.
+- Data is lost when the session ends.
+
+---
+
+## **Comparison Table**
+
+| Feature             | Cookies                           | Sessions                          |
+|---------------------|------------------------------------|------------------------------------|
+| **Storage Location** | Client-side (browser)             | Server-side                       |
+| **Size Limit**       | 4KB per cookie                   | No practical limit (depends on server capacity) |
+| **Lifetime**         | Can persist until expiration      | Ends when session expires or user logs out |
+| **Security**         | Vulnerable to XSS attacks         | Vulnerable to session hijacking (if not secured properly) |
+| **Use Case**         | Persistent data                  | Temporary data                    |
+
+---
+
+## **Conclusion**
+- Use **cookies** for lightweight, non-sensitive data that needs to persist across sessions.
+- Use **sessions** for secure, sensitive, or temporary data storage.
 
 ## 14. HTTP Status Codes Meaning
 - **1xx:** Informational.
